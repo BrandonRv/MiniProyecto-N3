@@ -3,6 +3,12 @@
 - admin@admin.com PASS: 1234
 - kcollen2@ezinearticles.com PASS: 1234
 
+# Nota Tailwind codigo para Compilar CSS desde Terminal
+
+- npx tailwindcss -i ./css/input.css -o ./css/output.css --watch
+
+(Se Actualizaran Automaticamente el Output.css y se aplicaran los Estilos)
+
 # Instrucciones
 
 Bienvenido al mini proyecto del nivel 3. En este proyecto estaremos aplicando los conocimientos adquiridos a lo largo del nivel. Sigue las instrucciones de este archivo para completar el proyecto y ten en cuenta que estas mismas se tomarán en cuenta para la evaluación final del proyecto.
