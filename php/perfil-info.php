@@ -68,30 +68,36 @@ if (!isset($_SESSION["datos"])) {
         </div>
         </div>
     </nav>
-<div id="formularioInfo">
-<form id="table-info" class="w-full " action="update_data.php">
-        <h1 class="mb-2 mt-4 colorPar">Personal info</h1>
-        <p class="mb-6 colorPar">Basic info, like your name and photo</p>
-        <div id="conInfoForm"  class="border-solid border-2">
-            <div class="px-6 md:px-20 h-24 w-full flex justify-between items-center border-b border-gray">
-                <div>
+    <div id="formularioInfo">
+<form id="table-info" action="update_data.php">
+<div id="tituloform">
+        <h1>Personal info</h1>
+        <p>Basic info, like your name and photo</p>
+        </div>
+        <div id="conInfoForm">
+            <div id="titleForm" class="flex">
+                <div id="profileForm">
                     <p class="text-lg">Profile</p>
-                    <p class="text-xs text-gray-400 w-44 md:w-full">Some info may be visible to other people</p>
+                    <p class="text-xs">Some info may be visible to other people</p>
                 </div>
-                <button class="bg-white hover:bg-gray-300 text-gray-500 border border-gray-400  py-2 px-8 rounded-lg" type="submit">Edit</button>
+            <div class="botoneditar">
+                <button id="botonEdit" type="submit">Edit</button>
+                </div>
             </div>
-            <div class="px-6 md:px-20 h-16 w-full flex border-b border-gray md:justify-normal justify-between items-center">
-                <p class="w-2/6 h-full flex items-center text-gray-400 text-sm">PHOTO</p>
-                <div 
-                class="border rounded-md h-12 w-12 overflow-hidden"  style="width: 100px;">
+            <div id="inputData" class="inputData">
+                <p class="w-2/6 h-full flex items-center">PHOTO</p>
+                <div>
+                <div id="imgDiv"
+                class="border rounded-md h-12 w-12 overflow-hidden"  
+                style="width: 48px;">
                     <?php
-                    echo "<img class='h-12 w-12' src='data:image/jpg; base64," . base64_encode($_SESSION["dato_imagen"]) . "'>";
+                    echo "<img id='imgForm' class='h-12 w-12' src='data:image/jpg; base64," . base64_encode($_SESSION["dato_imagen"]) . "'>";
                     ?>
                 </div>
+                </div>
             </div>
-
             <div class="inputData">
-                <p class=" flex items-center">NAME</p>
+                <p class="w-2/6 h-full flex items-center">NAME</p>
                 <div>
                 <input 
                 class="input-form"
@@ -136,7 +142,7 @@ if (!isset($_SESSION["datos"])) {
                 />
                 </div>
             </div>
-            <div class="inputData">
+            <div id="ultimopasw" class="inputData">
                 <p class="w-2/6 h-full flex items-center">PASSSWORD</p>
                 <div>
                 <input 
@@ -150,11 +156,13 @@ if (!isset($_SESSION["datos"])) {
                 </div>
             </div>
         </div>
-        <div id="contenedor-footer">
+        <div
+        id="contenedor-footer"
+        >
+        <!-- id="contenedor-footer" -->
             <p class="text-sm">create by <a href="https://github.com/BrandonRv">BrandonRv</a></p>
             <p class="text-sm">devChallenges.io</p>
         </div>
-
     </form>
     </div>
 </body>
