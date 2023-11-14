@@ -31,7 +31,7 @@ if (!isset($_SESSION["datos"])) {
         <div id="open" class="w-8 h-8  md:w-fit flex  justify-between items-center">
         <div>
             <?php
-            echo "<img class='h-8 w-8'  style='width: 2rem' src='data:image/jpg; base64," . base64_encode($_SESSION["dato_imagen"]) . "'>";
+            echo "<img id='imgperfilin' class='h-8 w-8'  style='width: 2rem' src='data:image/jpg; base64," . base64_encode($_SESSION["dato_imagen"]) . "'>";
             ?>
         </div>
             <p class="list-popover"> &#160; <?php echo $_SESSION["dato_nombre"] ?></p>
@@ -41,7 +41,7 @@ if (!isset($_SESSION["datos"])) {
                 </svg>
             </button>
         </div>
-        <div id="toggle" class="ghfh">
+        <div id="toggle">
             <ul>
                 <div class="listPopover">
                     <a class="flex lisst" href="perfil-info.php">
@@ -68,9 +68,10 @@ if (!isset($_SESSION["datos"])) {
         </div>
         </div>
     </nav>
-    <div id="formularioInfo">
+    <div id="formularioInfo" class="justify-between items-center">
 <form id="table-info" action="update_data.php">
-<div id="tituloform">
+<div id="conInfoForm2" >
+<div id="tituloform2">
         <h1>Personal info</h1>
         <p>Basic info, like your name and photo</p>
         </div>
@@ -91,7 +92,10 @@ if (!isset($_SESSION["datos"])) {
                 class="border rounded-md h-12 w-12 overflow-hidden"  
                 style="width: 48px;">
                     <?php
-                    echo "<img id='imgForm' class='h-12 w-12' src='data:image/jpg; base64," . base64_encode($_SESSION["dato_imagen"]) . "'>";
+                    echo "<img 
+                    id='imgForm' 
+                    class='h-12 w-12' 
+                    src='data:image/jpg; base64," . base64_encode($_SESSION["dato_imagen"]) . "'>";
                     ?>
                 </div>
                 </div>
@@ -155,6 +159,7 @@ if (!isset($_SESSION["datos"])) {
                 />
                 </div>
             </div>
+        </div>
         </div>
         <div
         id="contenedor-footer"

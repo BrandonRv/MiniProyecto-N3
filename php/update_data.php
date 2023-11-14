@@ -43,7 +43,7 @@ if (!isset($_SESSION["datos"])) {
                     </svg>
                 </button>
             </div>
-            <div id="toggle" class="ghfh">
+            <div id="toggle">
                 <ul>
                     <div class="listPopover">
                         <a class="flex lisst" href="perfil-info.php">
@@ -76,13 +76,13 @@ if (!isset($_SESSION["datos"])) {
     </nav>
     <button id="buttonback" href="perfil-info.php">&#60;&#160;Back</button> 
     <div id="formularioInfo" class="justify-between items-center">
-        <form id="table-info" class="#" method="POST" action="update_db.php" enctype="multipart/form-data">
+        <form id="table-info2" class="#" method="POST" action="update_db.php" enctype="multipart/form-data">
             <div id="conInfoForm" class="border-solid border-2">
                 <div id="tituloform">
                     <p class="text-lg">Change Info</p>
                     <p class="text-xs text-gray-400">Changes will be reflected to every services</p>
                 </div>
-                <div class="divDataIn">
+                <div class="divDataIn flex">
                     <div class="rounded-md">
                         <?php
                         echo '<img 
@@ -103,17 +103,17 @@ if (!isset($_SESSION["datos"])) {
                         <input 
                         class=" w-1" 
                         type="file" 
-                        id="archivo" 
+                        id="archivos" 
                         accept="image/*" 
                         class="fancy-file" 
                         name="newFoto" 
                         required
                         />
-                        <label class="flex justify-center items-centercursor-pointer absolute" for="archivo">
+                        <label class="flex" for="archivo">
                             <span>CHANGE PHOTO</span>
                         </label>
                     </div>
-                    <p class="border text-center  text-red-700">&#160;
+                    <p class="border text-center text-red-700">&#160;
                         <?php
                         if (isset($_SESSION["error_nophoto"])) {
                             echo $_SESSION["error_nophoto"];
@@ -196,7 +196,7 @@ if (!isset($_SESSION["datos"])) {
                     <button type="submit">Save</button>
                 </div>
             </div>
-            <div id="contenedor-footer">
+            <div id="contenedor-footer2">
                 <p class="text-sm">create by <a href="https://github.com/BrandonRv">BrandonRv</a></p>
                 <p class="text-sm">devChallenges.io</p>
             </div>

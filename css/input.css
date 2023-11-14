@@ -66,6 +66,14 @@ body {
 
 .listPopover2 {
   /* padding: 7px; */
+  display: flex;
+  width: 100%;
+  justify-content: start;
+  padding-left: 60px;
+  
+}
+
+.listPopover2 > button {
   padding-left: 18px;
   padding-right: 18px;
   padding-top: 6px;
@@ -75,7 +83,7 @@ body {
   background-color: #2196f3;
 }
 
-.listPopover2:hover {
+.listPopover2 > button:hover {
   background-color: rgb(96, 181, 250);
   border-radius: 10px;
 }
@@ -91,14 +99,15 @@ body {
 .fa-camera-retro {
   color: gray;
   position: absolute;
-  top: 80px;
-  left: 12px;
+  top: 185px;
+  left: 533px;
 }
 
 .inputData {
 
   justify-content: start;
-  padding-left: 50px;
+  padding-left: 60px;
+  padding-right: 150px;
   padding-top: 12px;
   padding-bottom: 12px;
   display: flex;
@@ -114,11 +123,15 @@ body {
 
 .divDataIn {
   color: var(--text-color);
+  width: 100%;
+  padding-left: 60px;
 }
 
 #buttonback {
   color: #2196f3;
   position: absolute;
+  top: 50px;
+  left: 460px;
 }
 
 #buttonback:hover{
@@ -153,14 +166,26 @@ body {
 
 #tituloform {
   width: 100%;
+  text-align: start;
+  color: var(--text-color);
+  padding: 20px;
+  padding-left: 60px;
+}
+
+#tituloform2 {
+  width: 100%;
   text-align: center;
   color: var(--text-color);
-  padding: 50px;
+  padding: 20px;
+  padding-left: 60px;
 }
+
+/* #tituloform2 */
 
 #titleForm {
   width: 100%;
   padding-right: 50px;
+  padding-left: 10px;
   border-color: gray;
 }
 
@@ -170,8 +195,8 @@ body {
 }
 
 #botonEdit {
-  padding-left: 10px;
-  padding-right: 10px;
+  padding-left: 30px;
+  padding-right: 30px;
   padding-top: 5px;
   padding-bottom: 5px;
   border-color: gray;
@@ -186,7 +211,6 @@ body {
   cursor: pointer;
   background-color: gray;
 }
-
 
 #inputData > div {
   padding-right: 200px;
@@ -250,9 +274,11 @@ body {
 
 #contenedor-footer {
   display: flex;
+  position: absolute;
   justify-content: space-between;
-  width: 450px;
+  width: 570px;
   color: var(--text-color);
+  bottom: 120px;
   /* margin-left: 200px; */
   /* margin-top: 20px;
   color: gray;
@@ -261,6 +287,24 @@ body {
   top: 757px;
   width: 450px; */
 }
+
+#contenedor-footer2 {
+  display: flex;
+  position: absolute;
+  justify-content: space-between;
+  width: 650px;
+  color: var(--text-color);
+  bottom: 45px;
+  /* margin-left: 200px; */
+  /* margin-top: 20px;
+  color: gray;
+  font-size: 15px;
+  position: absolute;
+  top: 757px;
+  width: 450px; */
+}
+
+
 
 #contenedor-footer-login {
   display: flex;
@@ -312,9 +356,19 @@ text-align: center;
   /* align-items: center; */
   border: 2px solid gray;
   background-color: var(--background-color);
-  width: 450px;
+  width: 650px;
   height: 100%;
   border-radius: 20px;
+  padding-bottom: 20px;
+}
+
+#conInfoForm2 {
+
+  display: flex;
+  flex-direction: column;
+  background-color: var(--background-color);
+  width: 500px;
+  height: 100%;
 }
 
 #infoPerson {
@@ -327,8 +381,17 @@ text-align: center;
 }
 
 #table-info {
+  display: flex;
+  justify-content: center;
   width:100%;
   margin-top: 50px;
+}
+
+#table-info2 {
+  display: flex;
+  justify-content: center;
+  width:100%;
+  margin-top: 80px;
 }
 
 #container-login {
