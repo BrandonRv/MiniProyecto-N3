@@ -288,6 +288,16 @@ body {
   width: 450px; */
 }
 
+#contenedor-footer-index {
+  display: flex;
+  position: absolute;
+  justify-content: space-between;
+  width: 450px;
+  color: var(--text-color);
+  bottom: 80px;
+  color: gray;
+}
+
 #contenedor-footer2 {
   display: flex;
   position: absolute;
@@ -320,6 +330,11 @@ body {
 .text-footer {
     font-size: 15px;
     color: gray;
+}
+
+.text-footer2 {
+  font-size: 15px;
+  color: gray;
 }
 
 

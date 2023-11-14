@@ -51,8 +51,8 @@
             <p><a href="./login.php">&#160;Login</a></p>
         </div>
         <button id="switch" onclick="cambiarModo()" ></button>
-        <div id="contenedor-footer">
-            <p>create by <a class="text-footer" href="https://github.com/BrandonRv">BrandonRv</a></p>
+        <div id="contenedor-footer-index">
+            <p>create by <a class="text-footer2" href="https://github.com/BrandonRv">BrandonRv</a></p>
             <p>devChallenges.io</p>
         </div>
     </div>
