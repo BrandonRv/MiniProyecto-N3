@@ -590,6 +590,7 @@ video {
   padding: 0;
   margin: 0;
   font-family: 'Noto Sans';
+  border-style: solid;
 }
 
 body {
@@ -619,7 +620,7 @@ body {
 #toggle {
   position: absolute;
   top: 75px;
-  left: 87%;
+  left: 92%;
   transform: translateX(-50%);
   width: 200px;
   padding: 10px;
@@ -639,6 +640,29 @@ body {
   border-radius: 10px;
 }
 
+.listPopover2 {
+  /* padding: 7px; */
+  display: flex;
+  width: 100%;
+  justify-content: start;
+  padding-left: 60px;
+}
+
+.listPopover2 > button {
+  padding-left: 18px;
+  padding-right: 18px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  color: white;
+  border-radius: 10px;
+  background-color: #2196f3;
+}
+
+.listPopover2 > button:hover {
+  background-color: rgb(96, 181, 250);
+  border-radius: 10px;
+}
+
 .list-popover {
   color: var(--text-color);
 }
@@ -650,12 +674,150 @@ body {
 .fa-camera-retro {
   color: gray;
   position: absolute;
-  top: 80px;
-  left: 12px;
+  top: 185px;
+  left: 533px;
 }
 
 .inputData {
-  display: block;
+  justify-content: start;
+  padding-left: 60px;
+  padding-right: 150px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  border-top: 2px solid gray;
+  /* border-bottom: 1px solid gray; */
+  /* border-color: gray; */
+  color: var(--text-color);
+  /* margin-top: 5px;
+  margin-bottom: 5px; */
+}
+
+.divDataIn {
+  color: var(--text-color);
+  width: 100%;
+  padding-left: 60px;
+}
+
+#buttonback {
+  color: #2196f3;
+  position: absolute;
+  top: 50px;
+  left: 460px;
+}
+
+#buttonback:hover{
+  cursor: pointer;
+}
+
+.ultimopasw {
+  border-top: 2px solid gray;
+}
+
+.inputData > p {
+  align-items: center;
+}
+
+.inputData > div {
+  display: flex;
+  width: 100%;
+  justify-content: end;
+  /* margin-right: 70; */
+}
+
+#profileForm {
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  /* margin-left: -40px; */
+  color: var(--text-color);
+  /* justify-content: flex-start; */
+  width: 100%;
+}
+
+#tituloform {
+  width: 100%;
+  text-align: start;
+  color: var(--text-color);
+  padding: 20px;
+  padding-left: 60px;
+}
+
+#tituloform2 {
+  width: 100%;
+  text-align: center;
+  color: var(--text-color);
+  padding: 20px;
+  padding-left: 60px;
+}
+
+/* #tituloform2 */
+
+#titleForm {
+  width: 100%;
+  padding-right: 50px;
+  padding-left: 10px;
+  border-color: gray;
+}
+
+:not(#titleForm) {
+  align-items: center;
+}
+
+#botonEdit {
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-radius: 10px;
+  color: var(--text-color);
+  background-color: var(--background-color);
+  border-color: gray;
+  border: 2px solid gray;
+}
+
+#botonEdit:hover {
+  cursor: pointer;
+  background-color: gray;
+}
+
+#inputData > div {
+  padding-right: 200px;
+}
+
+.input-form {
+  padding: 15px;
+  /* width: 6; */
+  border: none;
+  background-color: var(--background-color);
+  text-align: start;
+  width: 260px;
+  border-radius: 20px;
+}
+
+.input-form2 {
+  padding: 15px;
+  border: none;
+  background-color: var(--background-color);
+  text-align: start;
+  width: 260px;
+  border-radius: 12px;
+  border: 2px solid gray;
+  color: var(--text-color);
+}
+
+#imgDiv > div {
+  display: flex;
+  width: 100%;
+  justify-content: end;
+}
+
+#imgForm {
+  text-align: start;
+  border-radius: 10px;
 }
 
 #open {
@@ -670,19 +832,54 @@ body {
   text-size-adjust: 100%; */
 }
 
+#imgperfilin {
+  border-radius: 7px;
+}
+
 #spin {
   background-color: white;
 }
 
 #contenedor-footer {
   display: flex;
+  position: absolute;
   justify-content: space-between;
-  margin-top: 20px;
+  width: 570px;
+  color: var(--text-color);
+  bottom: 120px;
+  /* margin-left: 200px; */
+  /* margin-top: 20px;
   color: gray;
   font-size: 15px;
   position: absolute;
   top: 757px;
+  width: 450px; */
+}
+
+#contenedor-footer-index {
+  display: flex;
+  position: absolute;
+  justify-content: space-between;
   width: 450px;
+  color: var(--text-color);
+  bottom: 80px;
+  color: gray;
+}
+
+#contenedor-footer2 {
+  display: flex;
+  position: absolute;
+  justify-content: space-between;
+  width: 650px;
+  color: var(--text-color);
+  bottom: 45px;
+  /* margin-left: 200px; */
+  /* margin-top: 20px;
+  color: gray;
+  font-size: 15px;
+  position: absolute;
+  top: 757px;
+  width: 450px; */
 }
 
 #contenedor-footer-login {
@@ -697,6 +894,11 @@ body {
 }
 
 .text-footer {
+  font-size: 15px;
+  color: gray;
+}
+
+.text-footer2 {
   font-size: 15px;
   color: gray;
 }
@@ -716,20 +918,36 @@ body {
   color: var(--text-color);
 }
 
-/* #formularioInfo {
+#formularioInfo {
+  width: 100%;
+  /* background-color: #2196f3; */
+  /*/////////////////////////////// AQUI ////////////////////////// */
+  display: flex;
+}
 
-
-} */
+.botoneditar {
+  display: flex;
+  text-align: center;
+}
 
 #conInfoForm {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  border-color: var(--text-color);
+  /* align-items: center; */
+  border: 2px solid gray;
   background-color: var(--background-color);
-  width: 450px;
-  height: 74%;
+  width: 650px;
+  height: 100%;
   border-radius: 20px;
+  padding-bottom: 20px;
+}
+
+#conInfoForm2 {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--background-color);
+  width: 500px;
+  height: 100%;
 }
 
 #infoPerson {
@@ -740,20 +958,18 @@ body {
   /* text-align: center; */
 }
 
-/* #container-1 {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  border-color: var(--text-color);
-  background-color: var(--background-color);
-  width: 450px;
-  height: 74%;
-  border-radius: 20px;
-} */
-
 #table-info {
-  text-align: center;
+  display: flex;
+  justify-content: center;
   width:100%;
+  margin-top: 50px;
+}
+
+#table-info2 {
+  display: flex;
+  justify-content: center;
+  width:100%;
+  margin-top: 80px;
 }
 
 #container-login {
@@ -912,6 +1128,7 @@ body {
     border-radius: 20px;
   }
 
+  /*
   #conInfoForm {
     display: flex;
     flex-direction: column;
@@ -921,7 +1138,7 @@ body {
     width: 450px;
     height: 74%;
     border-radius: 20px;
-  }
+  } */
 
   #container-login {
     display: flex;
