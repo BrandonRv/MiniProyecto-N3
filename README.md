@@ -3,6 +3,14 @@
 - admin@admin.com PASS: 1234
 - kcollen2@ezinearticles.com PASS: 1234
 
+## Video Demostrativo
+
+
+
+https://github.com/BrandonRv/MiniProyecto-N3/assets/138633220/f03a815f-20db-4c69-b0ee-5a10b52901a3
+
+
+
 # Nota Tailwind codigo para Compilar CSS desde Terminal
 
 - npx tailwindcss -i ./css/input.css -o ./css/output.css --watch
