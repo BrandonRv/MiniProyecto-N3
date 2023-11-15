@@ -1,18 +1,12 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     session_start();
-    $email = $_POST["email"];
+    $email = filter_var($_POST["email"], FILTER_SANITIZE_EMAIL);
     $password = $_POST["passw"];
-    require_once("connection.php");
+    include("connection.php");
 
     try {
-        $stmt = $mysqli->prepare("SELECT * FROM usuarios WHERE email = ?");
-        $stmt->bind_param("s", $email);
-        $stmt->execute();
-        $result = $stmt->get_result();
-        $user = $result->fetch_assoc();
-        $stmt->close();
-
+        $user = get_user_data($mysqli, "email", $email);
         if ($user) {
             if (password_verify($password, $user["password"])) {
                 set_session_data($user);
@@ -28,29 +22,40 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "Error: " . $e->getMessage();
     }
 } else {
-
     try {
         session_start();
         $user_id = $_SESSION["user_id"];
-        require_once("connection.php");
-        
-        $stmt = $mysqli->prepare("SELECT * FROM usuarios WHERE id = ?");
-        $stmt->bind_param("i",  $user_id);
-        $stmt->execute();
-        $result = $stmt->get_result();
-        $user = $result->fetch_assoc();
-        $stmt->close();
-
+        include("connection.php");
+        $user = get_user_data($mysqli, "id", $user_id);
         if ($user) {
             set_session_data($user);
         } else {
-            echo "Los Datos no se Actualizaron Correctamente";
         }
     } catch (mysqli_sql_exception $e) {
         echo "Error: " . $e->getMessage();
     }
 }
-
+function get_user_data($mysqli, $field, $value) {
+    $stmt = $mysqli->prepare("SELECT * FROM usuarios WHERE $field = ?");
+    $stmt->bind_param(get_bind_type($value), $value);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $user = $result->fetch_assoc();
+    $stmt->close();
+    return $user;
+}
+function get_bind_type($value) {
+    switch (gettype($value)) {
+        case "integer":
+            return "i";
+        case "double":
+            return "d";
+        case "string":
+            return "s";
+        default:
+            return "b";
+    }
+}
 function set_session_data($user)
 {
     $_SESSION["datos"] = $user;
@@ -63,11 +68,9 @@ function set_session_data($user)
     $_SESSION["dato_imagen"] = $user["foto"];
     redirect("perfil-info.php");
 }
-
 function redirect($url)
 {
     header("Location: $url");
     die();
 }
-
-
+$mysqli->close();
