@@ -7,7 +7,7 @@
 
 
 
-https://github.com/BrandonRv/MiniProyecto-N3/assets/138633220/f03a815f-20db-4c69-b0ee-5a10b52901a3
+https://github.com/BrandonRv/MiniProyecto-N3/assets/138633220/9a53f6f6-ce0c-4398-b435-e30e6269fd73
 
 
 
