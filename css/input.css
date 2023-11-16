@@ -98,9 +98,9 @@ body {
 
 .fa-camera-retro {
   color: gray;
-  position: absolute;
-  top: 185px;
-  left: 533px;
+  position: relative;
+  top: 0px;
+  left: -35px;
 }
 
 .inputData {
@@ -128,10 +128,42 @@ body {
 }
 
 #buttonback {
+  width: 100%;
   color: #2196f3;
   position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   top: 50px;
-  left: 460px;
+  /* left: 460px;  */
+}
+
+#archivos {
+  opacity: 0;
+  position: absolute;
+  z-index: 1;
+  /* opacity: 0; */
+  cursor: pointer;
+  /* z-index: -1; */
+}
+
+#cambiar-imagenpx {
+
+  position: relative;
+  z-index: 0;
+  cursor: pointer;
+  /* display: flex; */
+  position: relative;
+  margin-left: 10px; 
+  /* z-index: 1; */
+}
+
+/* .image{
+border-radius: 15px;
+} */
+
+.div-button-back {
+  width: 650px;    
 }
 
 #buttonback:hover{
@@ -304,7 +336,7 @@ body {
   justify-content: space-between;
   width: 650px;
   color: var(--text-color);
-  bottom: 45px;
+  bottom: 30px;
   /* margin-left: 200px; */
   /* margin-top: 20px;
   color: gray;

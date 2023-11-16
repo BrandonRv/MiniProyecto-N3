@@ -74,8 +74,14 @@ if (!isset($_SESSION["datos"])) {
             </div>
         </div>
     </nav>
-    <button id="buttonback" href="perfil-info.php">&#60;&#160;Back</button> 
-    <div id="formularioInfo" class="justify-between items-center">
+
+
+    <div id="buttonback">
+    <div class="div-button-back flex justify-between">
+            <a class="items-center p-4" href="perfil-info.php">&lt; Back</a>
+        </div>
+        </div>
+  <div id="formularioInfo" class="justify-between items-center">
         <form id="table-info2" class="#" method="POST" action="update_db.php" enctype="multipart/form-data">
             <div id="conInfoForm" class="border-solid border-2">
                 <div id="tituloform">
@@ -84,32 +90,30 @@ if (!isset($_SESSION["datos"])) {
                 </div>
                 <div class="divDataIn flex">
                     <div class="rounded-md">
-                        <?php
-                        echo '<img 
+                    <img 
                     type="image" 
-                    style="opacity: 40%;" 
-                    class="h-12 w-12 hover:bg-gray-300 text-gray-500 border border-gray-400 rounded-lg " 
+                    style="opacity: 60%; border-radius: 10px;" 
+                    class="h-12 w-12 hover:bg-gray-300 text-gray-500 border border-gray-400" 
                     width="48" 
                     height="48" 
                     id="image" 
                     alt="photo" 
-                    src="data:image/jpg; base64,' . base64_encode($_SESSION['dato_imagen']) . '" 
+                    src= <?='"data:image/jpg; base64,' . base64_encode($_SESSION['dato_imagen']) . '"'?>
                     disabled
-                    >';
-                        ?>
+                    >
                     </div>
-                    <div class="flex">
+                    <div class="flex w-full">
                         <i class="fa-solid fa-camera-retro fa-lg"></i>
                         <input 
-                        class=" w-1" 
+                        class="w-1" 
                         type="file" 
                         id="archivos" 
                         accept="image/*" 
                         class="fancy-file" 
-                        name="newFoto" 
+                        name="newFoto"
                         required
                         />
-                        <label class="flex" for="archivo">
+                        <label id="cambiar-imagenpx" class="flex" for="archivo">
                             <span>CHANGE PHOTO</span>
                         </label>
                     </div>
@@ -122,6 +126,7 @@ if (!isset($_SESSION["datos"])) {
                         ?>
                     </p>
                 </div>
+                <br>
                 <div class="divDataIn">
                     <p class="w-2/6 h-full flex items-center">Name</p>
                     <input 
