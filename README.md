@@ -7,9 +7,6 @@
 
 
 
-https://github.com/BrandonRv/MiniProyecto-N3/assets/138633220/9a53f6f6-ce0c-4398-b435-e30e6269fd73
-
-
 
 # Nota Tailwind codigo para Compilar CSS desde Terminal
 
