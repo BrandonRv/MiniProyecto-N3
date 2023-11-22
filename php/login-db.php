@@ -1,12 +1,11 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     session_start();
-    $email_user = $_POST["email"];
+    $email_user = filter_var($_POST["email"], FILTER_SANITIZE_EMAIL);
     $pass_user = $_POST["passw"];
-    require_once("connection.php");
+    include("connection.php");
 
     try {
-        // Verificar si el correo ya existe
         $stmt_check = $mysqli->prepare("SELECT * FROM usuarios WHERE email = ?");
         $stmt_check->bind_param("s", $email_user);
         $stmt_check->execute();
@@ -17,7 +16,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $stmt_check->close(); 
             redirect("../index.php");
         } else {
-
             $avatar = file_get_contents("../img/user.png");
             $nombre_user = 'Usuario';
             $info_bio = 'Biografia';
@@ -27,23 +25,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $stmt_insert->bind_param("ssssss", $nombre_user, $info_bio, $info_phone, $email_user, $pass_user, $avatar);
             $stmt_insert->execute();
             $stmt_insert->close();
-            $stmt_get_user = $mysqli->prepare("SELECT * FROM usuarios WHERE email = ?");
-            $stmt_get_user->bind_param("s", $email_user);
-            $stmt_get_user->execute();
-            $result_user = $stmt_get_user->get_result();
-            $stmt_get_user->close();
-
-            if ($result_user->num_rows > 0) {
-                $user_data = $result_user->fetch_assoc();
-                $_SESSION["datos"] = $user_data;
-                $_SESSION["user_id"] = $user_data["id"];
-                $_SESSION["dato_nombre"] = $user_data["nombre"];
-                $_SESSION["dato_bio"] = $user_data["bio"];
-                $_SESSION["dato_telef"] =$user_data["telefono"];
-                $_SESSION["dato_email"] = $user_data["email"];
-                $_SESSION["dato_passw"] = $user_data["password"];
-                $_SESSION["dato_imagen"] =$user_data["foto"];
-                redirect("perfil-info.php");
+            $user_data = get_user_data($mysqli, "email", $email_user);
+            if ($user_data) {
+                set_session_data($user_data);
             } 
         }
     } catch (mysqli_sql_exception $e) {
@@ -51,9 +35,48 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     }
 }
 
-function redirect($url) {
+function get_user_data($mysqli, $field, $value) {
+    $stmt = $mysqli->prepare("SELECT * FROM usuarios WHERE $field = ?");
+    $stmt->bind_param(get_bind_type($value), $value);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $user = $result->fetch_assoc();
+    $stmt->close();
+    return $user;
+}
+
+function get_bind_type($value) {
+    switch (gettype($value)) {
+        case "integer":
+            return "i";
+        case "double":
+            return "d";
+        case "string":
+            return "s";
+        default:
+            return "b";
+    }
+}
+
+function set_session_data($user)
+{
+    $_SESSION["datos"] = $user;
+    $_SESSION["user_id"] = $user["id"];
+    $_SESSION["dato_nombre"] = $user["nombre"];
+    $_SESSION["dato_bio"] = $user["bio"];
+    $_SESSION["dato_telef"] = $user["telefono"];
+    $_SESSION["dato_email"] = $user["email"];
+    $_SESSION["dato_passw"] = $user["password"];
+    $_SESSION["dato_imagen"] = $user["foto"];
+    redirect("perfil-info.php");
+}
+
+function redirect($url)
+{
     header("Location: $url");
     die();
 }
+
+$mysqli->close();
 
 ?>
